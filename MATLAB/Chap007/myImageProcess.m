@@ -5,7 +5,7 @@ categoryNames = alexNet.Layers(end).Classes;
 layers = alexNet.Layers; 
 inLayer = layers(1);   % 最初のレイヤ取得
 outLayer = layers(end);% 最終のレイヤ取得
-img = imread('Rightware\Howard\DSC01337.JPG');
+img = imread('Rightware/Howard/DSC01337.JPG');
 figure; imshow (img);
 inLayer.InputSize
 % AlexNetの入力サイズに変更
