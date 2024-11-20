@@ -1,10 +1,13 @@
+close all;
+clear all;
+load('trainedNet.mat');
 %net = RightNet;         % alexnetを使用
 categoryNames = net.Layers(end).Classes;
 layers = net.Layers; 
 inLayer = layers(1);   % 最初のレイヤ取得
 outLayer = layers(end);% 最終のレイヤ取得
-%img = imread(['DSC00948.JPG']);   % オリジナル人2名
-img = imread(['DSC00948M6.png']);  % 人＋パンダ
+img = imread(['DSC00948.JPG']);   % オリジナル人2名
+%img = imread(['DSC00948M6.png']);  % 人＋パンダ
 figure; imshow (img);
 inLayer.InputSize
 % AlexNetの入力サイズに変更
