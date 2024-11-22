@@ -73,8 +73,10 @@ for i = 0:69
     legend('E(u)', 'Diff', 'Location', 'Best');
     drawnow;
     % 動画出力
-    frame=getframe(gcf);
-    writeVideo(v, frame);
+    if computer('arch') ~= "glnxa64"
+      frame=getframe(gcf);
+      writeVideo(v, frame);
+    end 
     pause(0.05);
 end
 % 動画ファイル閉じる
