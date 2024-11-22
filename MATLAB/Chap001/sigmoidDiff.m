@@ -1,10 +1,12 @@
 close all;
 clear all;
 % 動画ファイルの準備
-video_filename = 'animation.mp4';
-v = VideoWriter(video_filename, 'MPEG-4');
-v.FrameRate = 20; % フレームレートの設定
-open(v);
+if computer('arch') ~= "glnxa64"
+  video_filename = 'sigmoid';
+  v = VideoWriter(video_filename, 'MPEG-4');
+  v.FrameRate = 20; % フレームレートの設定
+  open(v);
+end 
 % シグモイド関数の定義
 sigmoid = @(u) 1 ./ (1 + exp(-u));
 % シグモイド関数を微分
@@ -54,11 +56,15 @@ for x0 = -6:0.1:6
     set(hDerivativePoint, 'XData', x0, 'YData', slope);
     drawnow;
     % 動画出力
-    frame=getframe(gcf);
-    writeVideo(v, frame);
+    if computer('arch') ~= "glnxa64"
+      frame=getframe(gcf);
+      writeVideo(v, frame);
+    end 
     pause(0.05);
     pause(0.05);
 end
 hold off;
 % 動画ファイル閉じる
-close(v);
+if computer('arch') ~= "glnxa64"
+  close(v);
+end

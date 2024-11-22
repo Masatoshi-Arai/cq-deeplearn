@@ -1,10 +1,12 @@
 close all;
 clear all;
 % 動画ファイルの準備
-video_filename = 'animation.mp4';
-v = VideoWriter(video_filename, 'MPEG-4');
-v.FrameRate = 20; % フレームレートの設定
-open(v);
+if computer('arch') ~= "glnxa64"
+  video_filename = 'errorGraph';
+  v = VideoWriter(video_filename, 'MPEG-4');
+  v.FrameRate = 20; % フレームレートの設定
+  open(v);
+end
 % 関数と関数の微分定義
 E1 = @(w1) (w1).^2 + 1;
 E2 = @(w1) (w1 - 1).^4 - w1.^3 + 12.48;
@@ -76,4 +78,6 @@ for i = 0:69
     pause(0.05);
 end
 % 動画ファイル閉じる
-close(v);
+if computer('arch') ~= "glnxa64"
+  close(v);
+end
