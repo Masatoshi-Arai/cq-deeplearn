@@ -7,7 +7,7 @@
   本リポジトリでは Interface 2025年1月号特集に記載のMATLABコード，Simulinkモデル，
   ならびに Excel ファイル等を公開しております．
   読者限定MATLABライセンスの利用方法については，下記のページを参照してください．
-  
+
   https://interface.cqpub.co.jp/202501deep-matlab/
 
 ## 利用方法：
